@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload nifti file</title>
+    <style>
+     a{ color:black; }
+    </style>
+</head>
+<body>
+
+<form action="deface_nifti" method="post" enctype="multipart/form-data">
+    
+    <span style=" font: bold 1.5em/1em Georgia, serif ;">
+    Load image to deface:
+    </span>
+
+    <input type="file" name="fileToDeface" id="fileToDeface">
+    <input type="submit" value="Deface" name="submit">
+</form>
+
+<br>
+
+<h3 style="box-sizing: border-box; margin-top: 24px; margin-bottom: 16px; font-size: 1.25em; line-height: 1.25; color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;; background-color: rgb(255, 255, 255);"><span style="font-size: 24px;">This Program can detect and remove identifiable facial features (eyes, nose, ears and mouth).</span><br></h3><p style="box-sizing: border-box; margin-bottom: 16px; color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;; font-size: 16px; background-color: rgb(255, 255, 255);">3D Unet-based neural network were used to detect eyes, nose and ears in the input medical image Creating bounding box at the largest segmented points that location of each predicted feature and&nbsp;<span style="box-sizing: border-box; font-weight: 600;">only removing surface facial features to avoid impinging on </span>brain.<br style="box-sizing: border-box;">this will be help with the secondary use of medical data by obscuring it locally to minimize information loss.<br></p><p style="box-sizing: border-box; margin-bottom: 16px; color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;; font-size: 16px; background-color: rgb(255, 255, 255);">Users could select the combination of facial parts (eyes, nose, ears and mouth) to de-identify and this function would be helpful by minimizing information loss.</p>
+
+<br>
+<img src="{% static 'img/Picture1.png' %}" alt="example" width="750" height="573">
+<br>
+<br>
+<br>
+<h3 style="box-sizing: border-box; margin-top: 24px; margin-bottom: 16px; font-size: 1.25em; line-height: 1.25; color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;; background-color: rgb(255, 255, 255);">
+<span style="font-size: 24px;">Comparison of 3D Rendered MR Image</span></h3>
+<br>
+<img src="{% static 'img/Picture3.png' %}" alt="example" width="750" height="400">
+
+</body>
+
+
+</html>
